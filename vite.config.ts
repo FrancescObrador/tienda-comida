@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '', 
+  base: 'https://francescobrador.github.io/tienda-comida', 
   build: {
     outDir: 'docs', // Para Github Pages
   }
