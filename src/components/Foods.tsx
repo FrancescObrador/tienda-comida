@@ -10,7 +10,7 @@ function Foods(props: FoodsProps){
     const returnToMenuHandler = () => {
 
     }
-
+    
     return (
         <>
             <h4 className="foodTitle">Choose from our Menu</h4>
@@ -19,7 +19,7 @@ function Foods(props: FoodsProps){
                     props.foodItems.map((item) => {
                         return (
                         <li key={item.id} className="liFoods">
-                            <img src={`/images/${item.image}`} alt={item.name} />
+                            <img src={`tienda-comida/images/${item.image}`} alt={item.name} />
                             <div className="foodItem">
                                 <p className="foodDesc">{item.desc}</p>
                                 <p className="foodPrice">${item.price}</p>

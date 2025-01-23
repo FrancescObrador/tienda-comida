@@ -1,5 +1,6 @@
 import React, { Suspense, useState } from 'react'
 import { MenuItem } from './entities/entities';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 export const foodItemsContext = React.createContext<MenuItem[]>([]);
 
@@ -23,12 +24,14 @@ function App() {
         "image": "pollo.jpeg"
         },
   ]);
-  const [isChooseFoodPage, setIsChooseFoodPage] = useState(false);
 
+  const [isChooseFoodPage, setIsChooseFoodPage] = useState(false);
+  
 
   return (
     <>
       <foodItemsContext.Provider value={menuItems}>
+        <ErrorBoundary fallback={<div>Ha ocurrido un error</div>}>
         <div className="App">
           <button className='toggleButton' onClick={() => {
             setIsChooseFoodPage(!isChooseFoodPage);
@@ -60,6 +63,7 @@ function App() {
           }
           
         </div>
+        </ErrorBoundary>
       </foodItemsContext.Provider>
     </>
   )

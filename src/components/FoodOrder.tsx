@@ -1,6 +1,7 @@
 import { MouseEventHandler, useContext, useState } from 'react';
 import { MenuItem } from '../entities/entities';
 import { foodItemsContext } from '../App';
+import { addOrder } from '../services/MenuData';
 
 interface FoodOrderProps {
     food: MenuItem;
@@ -11,13 +12,18 @@ const FoodOrder = (props: FoodOrderProps) => {
 
     const [quantity, setQuantity] = useState<number>(1);
     const [totalAmount] = useState(props.food.price);
-    const [_, setIsOrdered] = useState(false);
+    const [isOrdered, setIsOrdered] = useState(false);
 
     const menuItems: MenuItem[] = useContext(foodItemsContext)
    
-    const handleClick = () => {
+    const handleClick = async () => {
+        
+        setIsOrdered(true);
+        addOrder(props.food).then(() => {
+            setIsOrdered(false);
+        });
+
         menuItems.map((item: MenuItem) => {
-            setIsOrdered(true);
             if(item.id === props.food.id){
                 item.quantity = item.quantity - quantity;
             }
@@ -29,6 +35,7 @@ const FoodOrder = (props: FoodOrderProps) => {
 
     return (
         <>
+            {isOrdered && <div>Ordenando...</div>}
             <div>Total: ${total}</div>
             <input
                 type="number"
