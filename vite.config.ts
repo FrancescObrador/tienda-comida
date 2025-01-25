@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: 'https://francescobrador.github.io/tienda-comida', 
-  build: {
-    outDir: 'docs', // Para Github Pages
-  }
+  // build: {
+  //   outDir: 'docs', // Para Github Pages
+  // }
 })
