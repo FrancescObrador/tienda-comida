@@ -8,7 +8,7 @@ import { getDatabase } from "firebase/database";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBh8TVSo9aV1t6qdcxSF4O_6robg2mapRM",
+  apiKey: import.meta.env.VITE_API_KEY,
   authDomain: "diri-react-1.firebaseapp.com",
   databaseURL: "https://diri-react-1-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "diri-react-1",
